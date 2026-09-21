@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Library</OutputType>
+        <RootNamespace>TwitchTools.Api</RootNamespace>
+        <AssemblyName>TwitchTools.API</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <OutputPath>.bin\</OutputPath>
+    </PropertyGroup>
+    <Target Name="CopyModDll" AfterTargets="Build">
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(BepInExPluginsDir)\TwitchTools\" />
+    </Target>
+</Project>

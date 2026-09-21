@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Library</OutputType>
+        <AssemblyName>TwitchTools</AssemblyName>
+        <RootNamespace>TwitchTools</RootNamespace>
+        <LangVersion>latest</LangVersion>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <OutputPath>.bin\</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TwitchTools.Client\TwitchTools.Client.csproj" />
+        <ProjectReference Include="..\TwitchTools.API\TwitchTools.API.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+            <HintPath>$(BepInExCoreDir)\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>$(BepInExCoreDir)\BepInEx.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="ThornClient">
+            <HintPath>$(BepInExPluginsDir)\Thorn\ThornClient.dll</HintPath>
+        </Reference>
+        <Reference Include="PluginConfigurator">
+            <HintPath>$(BepInExPluginsDir)\PluginConfigurator\PluginConfigurator.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule">
+            <HintPath>$(ManagedDir)\UnityEngine.ImageConversionModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+            <HintPath>$(ManagedDir)\UnityEngine.UnityWebRequestModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+            <HintPath>$(ManagedDir)\UnityEngine.UIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+            <HintPath>$(ManagedDir)\Unity.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(ManagedDir)\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <Target Name="CopyModDll" AfterTargets="Build">
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(BepInExPluginsDir)\TwitchTools\" />
+    </Target>
+</Project>
